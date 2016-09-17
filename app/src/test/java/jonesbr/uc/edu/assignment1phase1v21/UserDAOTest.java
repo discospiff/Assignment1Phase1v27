@@ -6,10 +6,12 @@ package jonesbr.uc.edu.assignment1phase1v21;
 
 import junit.framework.TestCase;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import java.util.HashMap;
 
 import edu.uc.dao.IUserDAO;
-import edu.uc.dao.UserProviderStub;
 import edu.uc.dto.User;
 
 public class UserDAOTest extends TestCase {
@@ -17,6 +19,7 @@ public class UserDAOTest extends TestCase {
     IUserDAO userDAO;
 
     @Override
+    @Before
     protected void setUp() throws Exception {
         // TODO Auto-generated method stub
         super.setUp();
@@ -30,6 +33,7 @@ public class UserDAOTest extends TestCase {
      * 	key: String "Caz"
      * 	value: User object with userName = "Caz", firstName = "Caz", lastName = "Dolowicz", and other attributes populated with your choice of values.
      */
+    @Test
     public void testFetchAll() {
         HashMap<String, User> allUsers = userDAO.fetchAll();
         User caz = allUsers.get("Caz");
@@ -45,6 +49,7 @@ public class UserDAOTest extends TestCase {
      * 	Should create and return a new User object if the username is Caz.  See attribues above.
      * 	Should throw an exception in other circumstances.  This exception should contain a message.
      */
+    @Test
     public void testFetch() {
 
         try {
@@ -71,6 +76,7 @@ public class UserDAOTest extends TestCase {
      * 	should process normally if username and password are completed.
      * 	should throw an exception if username and password  are blank or null.  The exception must have a message – don’t leave it with an empty constructor!
      */
+    @Test
     public void testSave() {
         User validUser = new User();
         validUser.setFirstName("Caz");

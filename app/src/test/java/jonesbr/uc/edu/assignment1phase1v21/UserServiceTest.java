@@ -6,15 +6,18 @@ package jonesbr.uc.edu.assignment1phase1v21;
 
 import junit.framework.TestCase;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import edu.uc.dto.User;
 import edu.uc.service.IUserService;
-import edu.uc.service.UserServiceStub;
 
 public class UserServiceTest extends TestCase {
 
     IUserService userService;
 
     @Override
+    @Before
     protected void setUp() throws Exception {
         // TODO Auto-generated method stub
         super.setUp();
@@ -28,6 +31,7 @@ public class UserServiceTest extends TestCase {
      * 	Should fetch the user from the HashMap<String, User> using the username as a key, and return true if the username returns a valid user, and the password matches that user's password.
      * 	should return false for all other combinations.  Do not iterate over the HashMap; look up the object directly using the username as a key.  Hint: look at the methods that HashMap provides, and find one that will fetch a value without iterating.
      */
+    @Test
     public void testLogon() {
         try {
             assertTrue(userService.logon("Caz", "Cha5e5Cars"));
@@ -48,6 +52,7 @@ public class UserServiceTest extends TestCase {
      * 	Should create and return a new User object if the username is Caz.  See attribues above.
      * 	Should throw an exception in other circumstances.  This exception should contain a message.
      */
+    @Test
     public void testGetUser() {
 
         try {
@@ -75,6 +80,7 @@ public class UserServiceTest extends TestCase {
      * 	should process normally if username and password are completed.
      * 	should throw an exception if username and password  are blank or null.  The exception must have a message – don’t leave it with an empty constructor!
      */
+    @Test
     public void testSave() {
         User validUser = new User();
         validUser.setFirstName("Caz");
